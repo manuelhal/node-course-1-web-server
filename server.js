@@ -56,10 +56,17 @@ app.get('/', (req, res)=>{
 app.get('/about', (req, res)=>{
     res.render('about.hbs',{
         pageTitle: 'About',
+        pageContent: 'So you want to know more about me?'
     })
 })
 
 
+app.get('/projects',(req, res)=>{
+    res.render('projects.hbs',{
+        pageTitle : 'My Projects',
+        pageContent: 'Coming soon :)'
+    })
+})
 
 
 app.get('/bad', (req, res)=>{
@@ -69,7 +76,7 @@ app.get('/bad', (req, res)=>{
 })
 
 app.get('/*', (req, res)=>{
-    res.send('nothing here. go back!!!')
+    res.send('Nothing here. Go back!!!')
 })
 
 //listening to port
