@@ -1,6 +1,7 @@
 const express = require('express')
 const hbs = require('hbs')
 const fs  = require('fs')
+const port = process.env.PORT || 3000
 
 const app = express()
 
@@ -18,11 +19,12 @@ app.set('view engine','hbs')
             //     })
             //     next()
             // })
-            
-app.use((req, res, next)=>{
-    res.render('maintenance.hbs')
-    // next()
-})
+
+// //set maintenance page
+// app.use((req, res, next)=>{
+//     res.render('maintenance.hbs')
+//     // next()
+// })
 
 //this must be moved under the maintenance middleware, otherwise user can still see the static
 app.use(express.static(__dirname + '/public'))
@@ -71,6 +73,6 @@ app.get('/*', (req, res)=>{
 })
 
 //listening to port
-app.listen(3000, ()=>{
-    console.log('server is up on port 3000')
+app.listen(port, ()=>{
+    console.log(`server is up on port ${port}`)
 })
